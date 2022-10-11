@@ -28,7 +28,8 @@ Since much of this functionality relies on Artsy's Github and CircleCI org membe
 - Create a new repo on Github under the Artsy namespace and copy the files from this example repo into it. Commit and push to `main`.
 - Go to https://github.com/artsy/your-repo-name/settings/access, click `Add Teams`, and then add `Engineering`
 - Then [go to CircleCI](https://app.circleci.com/projects/project-dashboard/github/artsy/), find the new repo, and click the little "gear" icon to set up
-- As CircleCI should automatically pick up the [`.circleci/config.yml` file](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml), select the `Fastest` option and enter `main` for the branch. Click `Set up Project`
+- As CircleCI should automatically pick up the [`.circleci/config.yml` file](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml), select the `Fastest` option and enter `main` for the branch. Click `Set up Project`.
+- Add `NPM_TOKEN` and `GH_TOKEN` environment variables via the [settings page](https://app.circleci.com/settings/project/github/artsy/your-app-name/environment-variables) (details are in 1pass).
 - Update the package name in [`package.json`](https://github.com/artsy/npm-package-starter/blob/main/package.json#L2)
 - Done!
 
@@ -48,7 +49,7 @@ For those looking to understand how these pieces fit together within our Github 
 
 - The file responsible for connecting label-based publishing together is [`.autorc`](https://github.com/artsy/npm-package-starter/blob/main/.autorc)
 - Within `.autorc` is `"extends": "@artsy"`, which points at our [shared Auto config](https://github.com/artsy/auto-config). This is where we define the various labels that will perform various functions
-- For running tests and so on on CI, [see `.circleci/config.yml`](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml)
+- For running tests and other chores on CI, [see `.circleci/config.yml`](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml)
 - Inside of that file you'll see jobs like [`yarn/test`](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml#L20).
 - Notice how there's nothing pointing to a script in `package.json`? This is due to how we've setup [sensible defaults](https://github.com/artsy/orbs/blob/main/src/yarn/yarn.yml#L110) via CircleCI Orbs. It is assumed that one has these scripts already setup in their `package.json`.
 - All of the various authentication-token needs are also managed from within here, in the `pre-release` [job](https://github.com/artsy/orbs/blob/main/src/yarn/yarn.yml#L65-L71)
