@@ -28,8 +28,9 @@ Since much of this functionality relies on Artsy's Github and CircleCI org membe
 - Create a new repo on Github under the Artsy namespace and copy the files from this example repo into it. Commit and push to `main`.
 - Go to https://github.com/artsy/your-repo-name/settings/access, click `Add Teams`, and then add `Engineering`
 - Then [go to CircleCI](https://app.circleci.com/projects/project-dashboard/github/artsy/), find the new repo, and click the little "gear" icon to set up
-- As CircleCI should automatically pick up the [`.circleci/config.yml` file](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml), select the `Fastest` option and enter `main` for the branch. Click `Set up Project`.
+- As CircleCI should automatically pick up the [`.circleci/config.yml` file](https://github.com/artsy/npm-package-starter/blob/main/.circleci/config.yml), select the `Fastest` option and enter `main` for the branch. Click `Set up Project`
 - Add `NPM_TOKEN` and `GH_TOKEN` environment variables via the [settings page](https://app.circleci.com/settings/project/github/artsy/your-app-name/environment-variables) (details are in 1pass).
+- This will allow Auto to write a message to the GitHub PR notifying devs that the package has been published, along with the version number, as well as increment the version number in `package.json`
 - Update the package name in [`package.json`](https://github.com/artsy/npm-package-starter/blob/main/package.json#L2)
 - Done!
 
