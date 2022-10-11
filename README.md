@@ -1,6 +1,6 @@
 # @artsy/npm-package-starter
 
-A starter repo for publishing `@artsy` modules to NPM, which includes common CI setup and PR-label-based semantic version releases via [Auto](https://intuit.github.io/auto/index).
+A starter repo for publishing `@artsy` packages to NPM, which includes common CI setup and PR-label based semantic releases via [Auto](https://intuit.github.io/auto/index).
 
 ## Commands
 
